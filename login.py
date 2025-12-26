@@ -113,7 +113,7 @@ def signup_login():
                 dashboard(user)
                 break
                     
-        elif pilihan == 3:
+        elif pilihan == 0:
             print("Selamat Tinggal! Semoga Harimu Menyenangkan! ^_^ ")
             break
         else:
