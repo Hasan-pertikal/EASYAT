@@ -7,6 +7,7 @@ import pandas as pd
 
 file_path = "List_kalori_per100gram.csv"
 file_path2 = "minuman.csv"
+file_data = "database_kalori.csv"
 
 def cek(berat, kalori):
     if berat != kalori:
@@ -70,7 +71,7 @@ def Isi_catatan(user):
         list_berat_makanan.append(berat_makanan)
         copy_lbm.append(berat_makanan)
     
-    with open(file_path, 'r') as file: 
+    with open(file_data, 'r') as file: 
         datanya = csv.reader(file)
         for line in datanya: #mengubah file csv menjadi list-list per perbaris
             for i in range(len(list_makanan_user)): #membuat loop berdasarkan panjang list_makanan)user
