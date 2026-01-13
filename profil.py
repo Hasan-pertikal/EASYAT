@@ -49,18 +49,24 @@ def create_profile(username):
     }
 
     df = pd.DataFrame(data)
-    df.to_csv(file_path, mode= 'a', index=False, header=False)
+    if os.path.exists(file_path):
+        df.to_csv(file_path, mode= 'a', index=False, header=False)
+    else:
+        df.to_csv(file_path, index=False)
 
     print("Profil anda berhasil dibuat! Silahkan kembali ke Dashboard")
     print("======= Create Profile =======\n")
 
 def cek(username):
-    df = pd.read_csv(file_path)
-    df = df['Username']
-    for i in df:
-        if i == username:
-            return True
-    return False
+    if os.path.exists(file_path):
+        df = pd.read_csv(file_path)
+        df = df['Username']
+        for i in df:
+            if i == username:
+                return True
+        return False
+    else:
+        return False
 
 def profile(username):
     df = pd.read_csv(file_path)
